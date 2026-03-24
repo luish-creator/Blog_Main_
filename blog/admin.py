@@ -2,30 +2,30 @@
 
 
 from django.contrib import admin
-from .models import Post, Category, Comment  
+from .models import post, category, Comment
 
 
-class CommentItemInline(admin.TabularInline):
-    model = Comment
-    raw_id_fields = ['post']
+class ComentItemInline(admin.TabularInline):
+      model = Comment
+      raw_id_fields = ['post']
 
 
 class PostAdmin(admin.ModelAdmin):
-    search_fields = ['title', 'intro', 'body']
-    list_display = ('title', 'category', 'created_at', 'status')
-    list_filter = ['category', 'created_at', 'status']
-    inlines = [CommentItemInline]
+      search_fields = ['title','intrp','body']
+      list_display = ('title','category','created_at','status')
+      list_filter = ['category','created_at','status']
+      inlines = [ComentItemInline]
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    search_fields = ['title']
-    list_display = ('title',)
+      search_fields = ['title']
+      list_display = ('title',)
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'post', 'created_at')
+      search_fields = ('name','post','created_ad',)
 
 
-admin.site.register(Post, PostAdmin)
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Comment, CommentAdmin)
+admin.site.register(post,PostAdmin)
+admin.site.register(category,CategoryAdmin)
+admin.site.register(Comment,CommentAdmin)
