@@ -6,3 +6,4 @@ class CommentFrom(forms.ModelForm):
     class meta:
         model = Comment
         fields = ['name','email','body']
+        
