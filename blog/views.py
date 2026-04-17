@@ -30,9 +30,12 @@ def detail(request, id):
 
 
             return redirect('post_detail')
+        else:
+            form = CommentFrom()
 
 
     context = {
         'post': post,
+        'form': form
     }
     return render(request, 'blog/detail.html', context)
